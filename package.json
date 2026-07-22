@@ -1,0 +1,13 @@
+{
+  "name": "dataprev",
+  "version": "1.0.0",
+  "description": "Aplicação web para resumo de edital do Dataprev com chat IA",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
