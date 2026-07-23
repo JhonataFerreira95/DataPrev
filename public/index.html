@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dossiê de Estudo — Concurso Dataprev 2026</title>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="masthead">
+    <div class="masthead-title">
+      <div class="eyebrow">Dossiê de estudo · uso pessoal</div>
+      <h1>Concurso Dataprev</h1>
+      <div class="subtitle">Edital 001/2026 · Banca FGV · 212 vagas + cadastro de reserva</div>
+    </div>
+    <div class="protocol">
+      Órgão: <b>Dataprev S/A</b><br>
+      Publicação: <b>03/07/2026</b><br>
+      Prova objetiva: <b>11/10/2026</b><br>
+      Foco de estudo: <b>Perfil 3 — Dev. Software</b>
+    </div>
+  </div>
+
+  <div class="top-row">
+    <nav class="tabs" id="tabs">
+      <button data-tab="resumo" class="active">Resumo</button>
+      <button data-tab="tempo">Linha do tempo</button>
+      <button data-tab="vagas">Vagas</button>
+      <button data-tab="checklist">Checklist de estudo</button>
+      <button data-tab="chat">Pergunte ao dossiê</button>
+    </nav>
+    <div class="stamp-badge" id="stampBadge">
+      <span class="n" id="daysLeft">—</span>
+      <span class="l1">dias</span>
+      <span class="l2">até a prova</span>
+    </div>
+  </div>
+
+  <!-- RESUMO -->
+  <section class="panel" id="panel-resumo">
+    <h2 class="section-title">Resumo do certame</h2>
+    <div class="section-note">Os números que mais importam antes de começar a estudar.</div>
+    <div class="card-grid">
+      <div class="fact-card"><div class="k">Vagas imediatas</div><div class="v">212</div><div class="d">+ 1.611 no cadastro de reserva</div></div>
+      <div class="fact-card"><div class="k">Taxa de inscrição</div><div class="v">R$ 110</div><div class="d">Nível superior</div></div>
+      <div class="fact-card"><div class="k">Inscrições</div><div class="v">06/07 a 06/08</div><div class="d">até 16h de Brasília</div></div>
+      <div class="fact-card"><div class="k">Prova objetiva</div><div class="v">11/10/2026</div><div class="d">13h às 17h</div></div>
+      <div class="fact-card"><div class="k">Questões</div><div class="v">70</div><div class="d">40 gerais + 30 específicas</div></div>
+      <div class="fact-card"><div class="k">Nota mínima</div><div class="v">57,5</div><div class="d">de 115 pontos, sem zerar disciplina</div></div>
+      <div class="fact-card"><div class="k">Validade</div><div class="v">2 anos</div><div class="d">prorrogável por igual período</div></div>
+      <div class="fact-card"><div class="k">Regime</div><div class="v">CLT</div><div class="d">presencial, teletrabalho após período mínimo</div></div>
+    </div>
+
+    <div class="highlight-box">
+      <b>Cotas:</b> mínimo de 5% das vagas para pessoas com deficiência e 30% para pretos/pardos (25%), indígenas (3%) e quilombolas (2%). A concorrência é concomitante — quem se declara nessas condições também disputa a ampla concorrência.
+    </div>
+    <div class="highlight-box" style="border-color:var(--stamp);background:var(--stamp-soft);">
+      <b>Perfil sugerido para você (Desenvolvimento de Software):</b> peso 2,5 nas 30 questões específicas — Java/JavaEE/Spring, arquitetura, testes, DevOps, frontend web e engenharia de requisitos. Vagas imediatas concentradas em Fortaleza/CE, João Pessoa/PB, Natal/RN e Florianópolis/SC (20 cada).
+    </div>
+  </section>
+
+  <!-- LINHA DO TEMPO -->
+  <section class="panel" id="panel-tempo" hidden>
+    <h2 class="section-title">Linha do tempo</h2>
+    <div class="section-note">Datas oficiais do edital. As marcadas em verde já passaram.</div>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- VAGAS -->
+  <section class="panel" id="panel-vagas" hidden>
+    <h2 class="section-title">Explorador de vagas</h2>
+    <div class="section-note">Nível superior — vagas imediatas e cadastro de reserva por perfil e localidade.</div>
+    <div class="filters">
+      <select id="filterPerfil"></select>
+      <select id="filterLocal"></select>
+      <input type="text" id="filterSearch" placeholder="buscar perfil ou cidade...">
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Perfil</th><th>Localidade</th><th class="num">Imediatas</th><th class="num">Cadastro reserva</th><th class="num">Total</th></tr></thead>
+        <tbody id="vagasBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- CHECKLIST -->
+  <section class="panel" id="panel-checklist" hidden>
+    <h2 class="section-title">Checklist de estudo</h2>
+    <div class="section-note">Módulo I (todos os cargos) + Perfil 3 — Desenvolvimento de Software. Marque conforme for revisando.</div>
+    <div class="prog-bar-wrap">
+      <div class="prog-bar-track"><div class="prog-bar-fill" id="progFill"></div></div>
+      <div class="prog-label" id="progLabel">0 de 0 tópicos revisados</div>
+    </div>
+    <div id="checklistContainer"></div>
+  </section>
+
+  <!-- CHAT -->
+  <section class="panel" id="panel-chat" hidden>
+    <h2 class="section-title">Pergunte ao dossiê</h2>
+    <div class="section-note">Respostas geradas com base no conteúdo deste edital. Confira sempre no PDF oficial antes de tomar decisões.</div>
+    <div class="suggestions">
+      <button class="sugg" data-q="Quais documentos preciso levar no dia da prova?">Documentos no dia da prova</button>
+      <button class="sugg" data-q="Como funciona a isenção da taxa de inscrição?">Isenção de taxa</button>
+      <button class="sugg" data-q="O que acontece se eu zerar uma disciplina?">Zerar disciplina</button>
+      <button class="sugg" data-q="Explique o conteúdo específico do Perfil 3 de forma resumida.">Resumo do conteúdo Perfil 3</button>
+    </div>
+    <div class="chat-log" id="chatLog">
+      <div class="msg assistant">Pode perguntar sobre datas, regras de inscrição, cotas, conteúdo programático, critérios de desempate ou qualquer outro ponto do edital da Dataprev. Vou responder com base no que está registrado aqui.</div>
+    </div>
+    <div class="chat-input-row">
+      <textarea id="chatInput" placeholder="Digite sua pergunta sobre o edital..."></textarea>
+      <button class="send-btn" id="sendBtn">Enviar</button>
+    </div>
+  </section>
+
+  <footer>Ferramenta gerada a partir do Edital 001/2026 — DATAPREV / FGV · não substitui a leitura do documento oficial</footer>
+</div>
+
+<script>
+/* ---------- TABS ---------- */
+const tabButtons = document.querySelectorAll('#tabs button');
+const panels = {
+  resumo: document.getElementById('panel-resumo'),
+  tempo: document.getElementById('panel-tempo'),
+  vagas: document.getElementById('panel-vagas'),
+  checklist: document.getElementById('panel-checklist'),
+  chat: document.getElementById('panel-chat'),
+};
+tabButtons.forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    tabButtons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    Object.values(panels).forEach(p=>p.hidden=true);
+    panels[btn.dataset.tab].hidden=false;
+  });
+});
+
+/* ---------- STAMP COUNTDOWN ---------- */
+(function(){
+  const examDate = new Date('2026-10-11T13:00:00-03:00');
+  const today = new Date();
+  const diffDays = Math.ceil((examDate - today)/(1000*60*60*24));
+  document.getElementById('daysLeft').textContent = diffDays > 0 ? diffDays : '0';
+})();
+
+/* ---------- TIMELINE ---------- */
+const timelineData = [
+  {date:'03/07/2026', title:'Publicação do edital', desc:'Edital 001/2026 divulgado pela Dataprev/FGV.'},
+  {date:'06/07/2026 · 16h', title:'Abertura das inscrições', desc:'Início do preenchimento do requerimento online.'},
+  {date:'08/07/2026 · 16h', title:'Fim do prazo de isenção', desc:'Último dia para solicitar isenção da taxa (CadÚnico ou doador de medula).'},
+  {date:'06/08/2026 · 16h', title:'Encerramento das inscrições', desc:'Último horário para enviar o requerimento de inscrição.'},
+  {date:'07/08/2026', title:'Prazo final do boleto', desc:'Data limite para pagamento da taxa de inscrição.'},
+  {date:'11/10/2026 · 13h–17h', title:'Prova objetiva', desc:'70 questões, portões fecham às 12h30 (horário de Brasília).'},
+  {date:'11/11/2026 (provável)', title:'Convocação para perícia/heteroidentificação', desc:'Edital específico para candidatos PCD, negros, indígenas e quilombolas aprovados.'},
+  {date:'22/11/2026 (provável)', title:'Perícia médica e heteroidentificação', desc:'Avaliação biopsicossocial e entrevista de heteroidentificação.'},
+];
+const tlEl = document.getElementById('timeline');
+const now = new Date();
+timelineData.forEach(item=>{
+  const div = document.createElement('div');
+  div.className = 'tl-item';
+  div.innerHTML = `<div class="tl-date">${item.date}</div><div class="tl-title">${item.title}</div><div class="tl-desc">${item.desc}</div>`;
+  tlEl.appendChild(div);
+});
+// mark past dates as done (rough parse of first dd/mm/yyyy in string)
+document.querySelectorAll('.tl-item').forEach((el,i)=>{
+  const m = timelineData[i].date.match(/(\d{2})\/(\d{2})\/(\d{4})/);
+  if(m){
+    const d = new Date(`${m[3]}-${m[2]}-${m[1]}T23:59:59`);
+    if(d < now) el.classList.add('done');
+  }
+});
+
+/* ---------- VAGAS DATA ---------- */
+const vagasData = [
+  ["1. Análise de Negócio de TI","Brasília/DF",5,50,55],
+  ["1. Análise de Negócio de TI","Rio de Janeiro/RJ",0,9,9],
+  ["1. Análise de Negócio de TI","São Paulo/SP",0,9,9],
+  ["1. Análise de Negócio de TI","Fortaleza/CE",0,9,9],
+  ["1. Análise de Negócio de TI","João Pessoa/PB",0,9,9],
+  ["1. Análise de Negócio de TI","Natal/RN",0,9,9],
+  ["1. Análise de Negócio de TI","Florianópolis/SC",0,9,9],
+  ["2. Arquitetura, Engenharia e Sustentação Tecnológica","Brasília/DF",10,49,59],
+  ["2. Arquitetura, Engenharia e Sustentação Tecnológica","Rio de Janeiro/RJ",10,49,59],
+  ["2. Arquitetura, Engenharia e Sustentação Tecnológica","São Paulo/SP",10,49,59],
+  ["2. Arquitetura, Engenharia e Sustentação Tecnológica","Fortaleza/CE",0,9,9],
+  ["2. Arquitetura, Engenharia e Sustentação Tecnológica","João Pessoa/PB",0,9,9],
+  ["2. Arquitetura, Engenharia e Sustentação Tecnológica","Natal/RN",0,9,9],
+  ["2. Arquitetura, Engenharia e Sustentação Tecnológica","Florianópolis/SC",0,9,9],
+  ["3. Desenvolvimento de Software","Brasília/DF",0,17,17],
+  ["3. Desenvolvimento de Software","Rio de Janeiro/RJ",0,17,17],
+  ["3. Desenvolvimento de Software","São Paulo/SP",0,17,17],
+  ["3. Desenvolvimento de Software","Fortaleza/CE",20,80,100],
+  ["3. Desenvolvimento de Software","João Pessoa/PB",20,80,100],
+  ["3. Desenvolvimento de Software","Natal/RN",20,80,100],
+  ["3. Desenvolvimento de Software","Florianópolis/SC",20,80,100],
+  ["4. Inteligência da Informação","Brasília/DF",5,24,29],
+  ["4. Inteligência da Informação","Rio de Janeiro/RJ",0,25,25],
+  ["4. Inteligência da Informação","São Paulo/SP",0,9,9],
+  ["4. Inteligência da Informação","Fortaleza/CE",10,49,59],
+  ["4. Inteligência da Informação","João Pessoa/PB",10,49,59],
+  ["4. Inteligência da Informação","Natal/RN",10,49,59],
+  ["4. Inteligência da Informação","Florianópolis/SC",10,49,59],
+  ["5. Segurança Cibernética e Proteção de Dados","Brasília/DF",5,20,25],
+  ["5. Segurança Cibernética e Proteção de Dados","Rio de Janeiro/RJ",5,20,25],
+  ["5. Segurança Cibernética e Proteção de Dados","São Paulo/SP",5,20,25],
+  ["5. Segurança Cibernética e Proteção de Dados","Fortaleza/CE",0,5,5],
+  ["5. Segurança Cibernética e Proteção de Dados","João Pessoa/PB",0,17,17],
+  ["5. Segurança Cibernética e Proteção de Dados","Natal/RN",0,5,5],
+  ["5. Segurança Cibernética e Proteção de Dados","Florianópolis/SC",2,15,17],
+  ["6. Gestão de Serviços de TIC","Brasília/DF",5,44,49],
+  ["6. Gestão de Serviços de TIC","Rio de Janeiro/RJ",15,60,75],
+  ["6. Gestão de Serviços de TIC","São Paulo/SP",15,60,75],
+  ["7. Advocacia","Brasília/DF",0,29,29],
+  ["7. Advocacia","Rio de Janeiro/RJ",0,25,25],
+  ["8. Contabilidade","Rio de Janeiro/RJ",0,25,25],
+  ["9. Comunicação Social","Brasília/DF",0,9,9],
+  ["9. Comunicação Social","Rio de Janeiro/RJ",0,9,9],
+  ["10. Gestão Econômico-Financeira","Rio de Janeiro/RJ",0,29,29],
+  ["11. Administração e Governança","Brasília/DF",0,29,29],
+  ["11. Administração e Governança","Rio de Janeiro/RJ",0,40,40],
+  ["11. Administração e Governança","São Paulo/SP",0,29,29],
+  ["11. Administração e Governança","Fortaleza/CE",0,29,29],
+  ["11. Administração e Governança","João Pessoa/PB",0,29,29],
+  ["11. Administração e Governança","Natal/RN",0,29,29],
+  ["11. Administração e Governança","Florianópolis/SC",0,29,29],
+  ["12. Engenharia","Brasília/DF",0,9,9],
+  ["12. Engenharia","Rio de Janeiro/RJ",0,9,9],
+  ["12. Engenharia","São Paulo/SP",0,9,9],
+  ["12. Engenharia","Fortaleza/CE",0,9,9],
+  ["12. Engenharia","João Pessoa/PB",0,9,9],
+  ["12. Engenharia","Natal/RN",0,9,9],
+  ["12. Engenharia","Florianópolis/SC",0,9,9],
+  ["13. Analista de Processamento","Brasília/DF",0,10,10],
+  ["13. Analista de Processamento","Rio de Janeiro/RJ",0,10,10],
+  ["13. Analista de Processamento","São Paulo/SP",0,10,10],
+];
+
+const perfis = ["Todos os perfis", ...new Set(vagasData.map(r=>r[0]))];
+const locais = ["Todas as localidades", ...new Set(vagasData.map(r=>r[1]))];
+const selPerfil = document.getElementById('filterPerfil');
+const selLocal = document.getElementById('filterLocal');
+perfis.forEach(p=>selPerfil.appendChild(new Option(p,p)));
+locais.forEach(l=>selLocal.appendChild(new Option(l,l)));
+
+function renderVagas(){
+  const p = selPerfil.value, l = selLocal.value, q = document.getElementById('filterSearch').value.toLowerCase();
+  const body = document.getElementById('vagasBody');
+  body.innerHTML = '';
+  vagasData.filter(r=> (p==='Todos os perfis' || r[0]===p) && (l==='Todas as localidades' || r[1]===l) && (q==='' || r.join(' ').toLowerCase().includes(q)) ).forEach(r=>{
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>${r[0]}</td><td>${r[1]}</td><td class="num">${r[2]}</td><td class="num">${r[3]}</td><td class="num">${r[4]}</td>`;
+    body.appendChild(tr);
+  });
+}
+renderVagas();
+
+// filters
+document.getElementById('filterPerfil').addEventListener('change', renderVagas);
+document.getElementById('filterLocal').addEventListener('change', renderVagas);
+document.getElementById('filterSearch').addEventListener('input', renderVagas);
+
+/* CHECKLIST */
+const checklist = [
+  'Ler o edital na íntegra',
+  'Planejar cronograma de estudos',
+  'Revisar Módulo I: Língua Portuguesa',
+  'Revisar Perfil 3: Java / Frontend / DevOps',
+];
+const checklistContainer = document.getElementById('checklistContainer');
+checklist.forEach((t,i)=>{
+  const div = document.createElement('div'); div.className='check-item';
+  div.innerHTML = `<input type="checkbox" id="c${i}"><span>${t}</span>`;
+  div.querySelector('input').addEventListener('change', e=>{
+    div.classList.toggle('checked', e.target.checked);
+    updateProg();
+  });
+  checklistContainer.appendChild(div);
+});
+
+function updateProg(){
+  const total = checklist.length; const done = [...document.querySelectorAll('.check-item input')].filter(i=>i.checked).length;
+  document.getElementById('progFill').style.width = `${(done/total)*100}%`;
+  document.getElementById('progLabel').textContent = `${done} de ${total} tópicos revisados`;
+}
+updateProg();
+
+/* CHAT */
+const chatLog = document.getElementById('chatLog');
+const chatInput = document.getElementById('chatInput');
+const sendBtn = document.getElementById('sendBtn');
+
+async function sendMessage(text){
+  const msgEl = document.createElement('div'); msgEl.className='msg user'; msgEl.textContent = text; chatLog.appendChild(msgEl);
+  const body = { messages: [{ role: 'user', content: text }], system: '' };
+  const r = await fetch('/chat', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body) });
+  const data = await r.json();
+  const resp = document.createElement('div'); resp.className='msg assistant'; resp.textContent = JSON.stringify(data, null, 2); chatLog.appendChild(resp);
+}
+
+sendBtn.addEventListener('click', ()=>{ if(chatInput.value.trim()) sendMessage(chatInput.value.trim()); chatInput.value=''; });
+document.querySelectorAll('.sugg').forEach(b=>b.addEventListener('click', ()=>{ chatInput.value=b.dataset.q; }));
+</script>
+
+</body>
+</html>
